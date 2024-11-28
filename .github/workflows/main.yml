@@ -2,7 +2,7 @@ name: Auto Test
 on:
    # События, которые запускают jobs
   push:
-    branches: [ "main" ]
+    branches: [ "main", "CI/CD_364589" ]
 
 # jobs запускаются параллельно, если не указана последовательность
 jobs:
@@ -22,8 +22,8 @@ jobs:
         with:
           python-version: '3.10'
           
-      - name: Run test
-        run: python geometric_lib_test.ru -v
+      - name: Run tests
+        run: python -m unittest geometric_lib_test.py
     test2:
       name: Windows
       # Операционная система в виртуальной машине, в которой запускаются процессы
@@ -40,6 +40,5 @@ jobs:
         with:
           python-version: '3.10'
           
-      - name: Run test
-        run: python geometric_lib_test.ru -v
-        
+      - name: Run tests
+        run: python -m unittest geometric_lib_test.py       
