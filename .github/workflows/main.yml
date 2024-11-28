@@ -1,0 +1,25 @@
+name: Auto Test
+on:
+   # События, которые запускают jobs
+  push:
+    branches: [ "main" ]
+
+# jobs запускаются параллельно, если не указана последовательность
+jobs:
+    test1:
+      name: Ubuntu
+      # Операционная система в виртуальной машине, в которой запускаются процессы
+      runs-on: ubuntu-latest
+        # Шаги
+        steps:
+          - name: Run test
+            run: python geometric_lib_test.ru -v
+    test2:
+      name: Windows
+      # Операционная система в виртуальной машине, в которой запускаются процессы
+      runs-on: windows-latest
+        # Шаги
+        steps:
+          - name: Run test
+            run: python geometric_lib_test.ru -v
+        
